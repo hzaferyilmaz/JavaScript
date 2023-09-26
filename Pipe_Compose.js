@@ -16,7 +16,7 @@ const pipe = (...functions) => (value) => {
   .reduce((currentValue, currentFunction, currentFunctionIndex, functionArray) => {
     console.log(currentValue, currentFunction, currentFunctionIndex, functionArray);
     return currentFunction(currentValue);
-  }, value)
+  }, value);
 };
 
 pipe(
@@ -24,7 +24,7 @@ pipe(
   uppercase, // "JAVASCRIPT"
   getSixCharacters, // "JAVASC"
   reverse // "CSAVAJ"
-)({ name: 'Javascript' }) // console.log -> "CSAVAJ"
+)({ name: 'Javascript' }); // console.log -> "CSAVAJ"
 
 //----------------------------------------------
 //----------------------------------------------
@@ -35,7 +35,7 @@ const compose = function(...rest) {
     return rest.reduceRight(function(currentValue, currentFunction, currentFunctionIndex, functionArray){
       console.log(accumulator, currentValue, currentIndex, array);
       return currentValue(accumulator);
-    }, value)
+    }, value);
   } 
 };
 
