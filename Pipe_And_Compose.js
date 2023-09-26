@@ -20,11 +20,11 @@ const pipe = (...functions) => (value) => {
 }
 
 pipe(
-  getName, // "Buckethead"
-  uppercase, // "BUCKETHEAD"
-  get6Characters, // "BUCKET"
-  reverse // "TEKCUB"
-)({ name: 'Buckethead' }) // console.log -> "TEKCUB"
+  getName, // "Javascript"
+  uppercase, // "JAVASCRIPT"
+  get6Characters, // "JAVASC"
+  reverse // "CSAVAJ"
+)({ name: 'Javascript' }) // console.log -> "CSAVAJ"
 
 //----------------------------------------------
 //----------------------------------------------
