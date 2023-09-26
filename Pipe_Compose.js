@@ -1,11 +1,11 @@
 //Utils functions
-const getName = (person) => person.name;
+const getName = person => person.name;
 
-const uppercase = (string) => string.toUpperCase();
+const uppercase = string => string.toUpperCase();
 
-const getSixCharacters = (string) => string.substring(0, 6);
+const getSixCharacters = string => string.substring(0, 6);
 
-const reverse = (string) => string.split('').reverse().join('');
+const reverse = string => string.split('').reverse().join('');
 
 //----------------------------------------------
 //----------------------------------------------
@@ -17,7 +17,7 @@ const pipe = (...functions) => (value) => {
     console.log(currentValue, currentFunction, currentFunctionIndex, functionArray);
     return currentFunction(currentValue);
   }, value)
-}
+};
 
 pipe(
   getName, // "Javascript"
