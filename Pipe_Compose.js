@@ -14,7 +14,6 @@ const reverse = string => string.split('').reverse().join('');
 const pipe = (...functions) => (value) => {
   return functions
   .reduce((currentValue, currentFunction, currentFunctionIndex, functionArray) => {
-    console.log(currentValue, currentFunction, currentFunctionIndex, functionArray);
     return currentFunction(currentValue);
   }, value);
 };
@@ -33,7 +32,6 @@ pipe(
 const compose = function(...rest) {
   return function(value) {
     return rest.reduceRight(function(currentValue, currentFunction, currentFunctionIndex, functionArray){
-      console.log(accumulator, currentValue, currentIndex, array);
       return currentValue(accumulator);
     }, value);
   } 
