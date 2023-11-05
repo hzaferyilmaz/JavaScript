@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dosya Yükleme Formu</title>
+</head>
+
+<body>
+    <h1>Dosya Yükleme Formu</h1>
+
+    <form id="file-upload-form">
+        <input type="file" id="file-input" name="dosya" accept=".jpg, .jpeg, .png, .gif, .txt" />
+        <br /><br />
+        <button type="button" id="upload-button">Dosya Yükle</button>
+    </form>
+
+    <div>
+        <p id="message" style="color: darkred; font-family: monospace; font-size: 1.25em; user-select: none;"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById('upload-button').addEventListener('click', function () {
+            // Dosya yükleme işlemi
+            const fileInput = document.getElementById('file-input');
+            const selectedFile = fileInput.files[0];
+
+            console.log(selectedFile);
+
+            if (!selectedFile) {
+                document.getElementById('message').innerHTML = 'Lütfen bir dosya seçin.';
+                return;
+            }
+
+            const apiUrl = 'https://example.com/upload';
+
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+
+            axios.post(apiUrl, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+                .then(response => {
+                    document.getElementById('message').innerHTML = 'Dosya başarıyla yüklendi: ' + response.data;
+                })
+                .catch(error => {
+                    document.getElementById('message').innerHTML = 'Yükleme hatası: ' + error;
+                });
+        });
+    </script>
+</body>
+
+</html>
