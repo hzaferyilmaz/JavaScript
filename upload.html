@@ -2,6 +2,11 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript(AXIOS)">
+    <meta name="author" content="Z@fer YILMAZ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dosya Yükleme Formu</title>
 </head>
 
@@ -21,7 +26,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         document.getElementById('upload-button').addEventListener('click', function () {
-            // Dosya yükleme işlemi
+
             const fileInput = document.getElementById('file-input');
             const selectedFile = fileInput.files[0];
 
@@ -41,13 +46,11 @@
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
-            })
-                .then(response => {
-                    document.getElementById('message').innerHTML = 'Dosya başarıyla yüklendi: ' + response.data;
-                })
-                .catch(error => {
-                    document.getElementById('message').innerHTML = 'Yükleme hatası: ' + error;
-                });
+            }).then(response => {
+                document.getElementById('message').innerHTML = 'Dosya başarıyla yüklendi: ' + response.data;
+            }).catch(error => {
+                document.getElementById('message').innerHTML = 'Yükleme hatası: ' + error;
+            });
         });
     </script>
 </body>
